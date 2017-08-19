@@ -63,7 +63,7 @@ public class DAOImpl {
 	        
 	        if (connection != null) {
 				Statement s = connection.createStatement();
-				rs = s.executeQuery("select * from employees order by last_name");
+				rs = s.executeQuery("select * from emp");
 				return rs.getInt(1);
 	        	
 			}
