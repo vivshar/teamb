@@ -19,7 +19,7 @@ public class DAOImpl {
 		Connection connection = null;
 		try {
 			connection = DriverManager.getConnection(
-			   "jdbc:postgresql://ec2-50-17-217-166.compute-1.amazonaws.com:5432/ddq7urlrfunt2g","vkpofcuxsisuio", "02a43c5a4c1e333a2f24847cb75629d6ce8a0e05276a6ae98c246bd0af103009");
+			   "jdbc:postgres://vkpofcuxsisuio:02a43c5a4c1e333a2f24847cb75629d6ce8a0e05276a6ae98c246bd0af103009@ec2-50-17-217-166.compute-1.amazonaws.com:5432/ddq7urlrfunt2g","vkpofcuxsisuio", "02a43c5a4c1e333a2f24847cb75629d6ce8a0e05276a6ae98c246bd0af103009");
 			
 			if (connection != null) {
 				Statement s = connection.createStatement();
