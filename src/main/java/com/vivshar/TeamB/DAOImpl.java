@@ -59,6 +59,16 @@ public class DAOImpl {
 	        props.setProperty("password", "02a43c5a4c1e333a2f24847cb75629d6ce8a0e05276a6ae98c246bd0af103009");
 	        props.setProperty("ssl", "true");
 	        connection = DriverManager.getConnection(url, props);
+	        
+	        if (connection != null) {
+				/*Statement s = connection.createStatement();
+				ResultSet rs = s.executeQuery("select * from employees order by last_name");
+				return rs.getInt(1);*/
+	        	return 1;
+	        	
+			}
+	        
+	        
 	    } catch (SQLException e) {
 
 	        System.out.println("Connection Failed! Check output console");
