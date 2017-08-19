@@ -43,7 +43,7 @@ public class DAOImpl {
 				ResultSet rs = s.executeQuery("select * from employees order by last_name");
 				return rs.getInt(1);
 			} else {
-				System.out.println("Failed to make connection!");
+				return -2;
 			}
 			
 			
@@ -59,7 +59,8 @@ public class DAOImpl {
 		finally {
 			try {
 				connection.close();
-			} catch (SQLException e) {
+/*				rs.close();
+*/			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
