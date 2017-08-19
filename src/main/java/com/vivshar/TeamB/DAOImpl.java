@@ -50,7 +50,8 @@ public class DAOImpl {
 			
 		} catch (SQLException | URISyntaxException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+		
 		}
 		
 		
@@ -65,7 +66,7 @@ public class DAOImpl {
 		}
 		
 		
-		return 0;
+		return -1;
 
 		
 		
