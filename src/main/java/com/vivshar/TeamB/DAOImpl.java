@@ -1,5 +1,7 @@
 package com.vivshar.TeamB;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,8 +20,23 @@ public class DAOImpl {
 		}
 		Connection connection = null;
 		try {
-			connection = DriverManager.getConnection(
-			   "jdbc:postgres://vkpofcuxsisuio:02a43c5a4c1e333a2f24847cb75629d6ce8a0e05276a6ae98c246bd0af103009@ec2-50-17-217-166.compute-1.amazonaws.com:5432/ddq7urlrfunt2g","vkpofcuxsisuio", "02a43c5a4c1e333a2f24847cb75629d6ce8a0e05276a6ae98c246bd0af103009");
+			/*connection = DriverManager.getConnection(
+			   "jdbc:postgresql://ec2-50-17-217-166.compute-1.amazonaws.com:5432/ddq7urlrfunt2g","vkpofcuxsisuio", "02a43c5a4c1e333a2f24847cb75629d6ce8a0e05276a6ae98c246bd0af103009");
+			*/
+			
+			URI dbUri = new URI("postgres://vkpofcuxsisuio:02a43c5a4c1e333a2f24847cb75629d6ce8a0e05276a6ae98c246bd0af103009@ec2-50-17-217-166.compute-1.amazonaws.com:5432/ddq7urlrfunt2g");
+
+		    String username = dbUri.getUserInfo().split(":")[0];
+		    String password = dbUri.getUserInfo().split(":")[1];
+		    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+
+		    connection =  DriverManager.getConnection(dbUrl, username, password);
+			
+			
+			
+			
+			
+			
 			
 			if (connection != null) {
 				Statement s = connection.createStatement();
@@ -31,7 +48,7 @@ public class DAOImpl {
 			
 			
 			
-		} catch (SQLException e) {
+		} catch (SQLException | URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
