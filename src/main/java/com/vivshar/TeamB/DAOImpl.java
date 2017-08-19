@@ -20,6 +20,7 @@ public class DAOImpl {
 			e1.printStackTrace();
 		}
 		Connection connection = null;
+		ResultSet rs= null;
 /*		try {
 			connection = DriverManager.getConnection(
 			   "jdbc:postgresql://ec2-50-17-217-166.compute-1.amazonaws.com:5432/ddq7urlrfunt2g","vkpofcuxsisuio", "02a43c5a4c1e333a2f24847cb75629d6ce8a0e05276a6ae98c246bd0af103009");
@@ -61,10 +62,9 @@ public class DAOImpl {
 	        connection = DriverManager.getConnection(url, props);
 	        
 	        if (connection != null) {
-				/*Statement s = connection.createStatement();
-				ResultSet rs = s.executeQuery("select * from employees order by last_name");
-				return rs.getInt(1);*/
-	        	return 1;
+				Statement s = connection.createStatement();
+				rs = s.executeQuery("select * from employees order by last_name");
+				return rs.getInt(1);
 	        	
 			}
 	        
@@ -82,8 +82,8 @@ public class DAOImpl {
 		finally {
 			try {
 				connection.close();
-/*				rs.close();
-*/			} catch (SQLException e) {
+				rs.close();
+			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
