@@ -32,6 +32,8 @@ public class MyResource {
     @Produces(MediaType.TEXT_HTML)
     public String second() {
     	DAOImpl daoImpl = new DAOImpl();
+    	
+    	
     	return "<h1>"+daoImpl.fun()+"<h1>";
     }
     

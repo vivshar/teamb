@@ -51,6 +51,14 @@
             <type>pom</type>
             <scope>test</scope>
         </dependency>
+
+
+
+        <dependency>
+        	<groupId>org.postgresql</groupId>
+        	<artifactId>postgresql</artifactId>
+        	<version>42.1.4.jre7</version>
+        </dependency>
     </dependencies>
 
     <build>
