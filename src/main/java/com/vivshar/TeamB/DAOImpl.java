@@ -65,6 +65,7 @@ public class DAOImpl {
 				Statement s = connection.createStatement();
 				rs = s.executeQuery("select * from emp");
 				rs.next();
+				rs.next();
 				return rs.getInt(1);
 			
 	        	
